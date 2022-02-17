@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="ru">
+
+	<head>
+		<title>Adaptive burger</title>
+
+		<link rel="stylesheet" href="{% static 'css/style.css'%}">
+
+		<meta charset="UTF-8">
+
+		<meta name="viewport" content="width=device-width">
+
+	</head>
+
+	<body>
+
+		<div class="wrapper">
+		<header class="header">
+			<div class="container">
+				<div class="header__body">
+					<a href="" class="header__logo">
+						<img src="img/img.png" alt="">
+					</a>
+					<div class="header__burger">
+						<span></span>
+					</div>
+					<nav class="header__menu">
+						<ul class="header__list">
+							<li><a href="{% url 'glavnaya'%}" class="header__link">Главная</a></li>
+							<li><a href="{% url 'news/'%}" class="header__link">Новости</a></li>
+							<li><a href="" class="header__link">Сообщения</a></li>
+							<li><a href="" class="header__link">Музыка</a></li>
+							<li><a href="" class="header__link">Группы</a></li>
+							<li><a href="" class="header__link">Универсал</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<div class="content">
+			<div class="container">
+				<div class="content__title">
+					<h1 class="title__text">
+						НОВОСТИ
+					</h1>
+				</div>
+				<div class="content__body">
+					<div class="news">
+						<div class="news__row">
+							{% block content %}
+							{% for post in posts %}
+							<div class="news_p">
+								{{post.title}}
+								{{post.text}}
+							</div>
+							{% endfor %}
+     						{% endblock content %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+		<script src="{%static 'js/script.js'%}"></script>
+
+	</body>
+
+</html>
