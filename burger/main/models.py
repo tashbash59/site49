@@ -13,3 +13,14 @@ class New(models.Model):
 
 	def __str__(self):
 		return self.NewsPost
+
+	class Meta:
+		ordering = ['-published_date']
+
+
+class Galery(models.Model):
+	title = models.CharField(max_length = 150, null = True)
+	Photo = models.ImageField(upload_to = 'images/')
+
+	def __str__(self):
+		return self.title
